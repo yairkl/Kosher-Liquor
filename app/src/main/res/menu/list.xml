@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/listScan"
+        android:orderInCategory="200"
+        android:title="@string/menu_barcode"
+        android:icon="@drawable/barcode_icon"
+        android:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/listUpdate"
+        android:orderInCategory="300"
+        android:title="@string/menu_update"
+        android:showAsAction="never"/>
+
+    <item
+        android:id="@+id/ListInfo"
+        android:orderInCategory="400"
+        android:title="@string/menu_about"
+        android:showAsAction="never" />
+
+
+    <item android:id="@+id/searchList"
+        android:title="@string/menu_search"
+        android:icon="@drawable/search_icon"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView" />
+
+    <item
+        android:id="@+id/listLanguage"
+        android:title="@string/menu_language"
+        android:showAsAction="never"
+        android:orderInCategory="500"/>
+
+</menu>

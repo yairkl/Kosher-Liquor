@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yairkl.kosherliquorplus.SearchActivity">
+
+    <item android:id="@+id/searchS"
+        android:title="@string/menu_search"
+        android:icon="@drawable/search_icon"
+        android:showAsAction="collapseActionView"
+        android:actionViewClass="android.widget.SearchView" />
+</menu>
+<!-- From: file:/home/yair/AndroidStudioProjects/KosherLiquorPlus/app/src/main/res/menu/menu_search.xml -->

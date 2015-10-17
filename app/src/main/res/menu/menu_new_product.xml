@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yairkl.kosherliquorplus.newProduct">
+    <item
+        android:id="@+id/send"
+        android:title="@string/menu_send"
+        android:icon="@android:drawable/ic_menu_send"
+        android:orderInCategory="100"
+        android:showAsAction="always" />
+
+</menu>

@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#777777"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView"
+        android:columnWidth="100dp"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:layout_margin="5dp"
+        android:verticalSpacing="5dp"
+        android:stretchMode="columnWidth"
+        android:focusable="true"
+        android:clickable="true" />
+</RelativeLayout>
+<!-- From: file:/home/yair/AndroidStudioProjects/KosherLiquorPlus/app/src/main/res/layout/activity_main.xml -->

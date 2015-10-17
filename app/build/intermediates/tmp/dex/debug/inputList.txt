@@ -1,0 +1,2 @@
+/home/yair/AndroidStudioProjects/KosherLiquorPlus/app/build/intermediates/classes/debug
+/home/yair/AndroidStudioProjects/KosherLiquorPlus/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a708f01a15515c7f35dcf4aca5dc1912bf030fd.jar

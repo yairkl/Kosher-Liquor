@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/yair/AndroidStudioProjects/KosherLiquorPlus/app/src/main/res/values-iw/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">הגדרות</string>
+    <string name="app_name">ליקר כשר</string>
+    <string name="background_done">סיים</string>
+    <string name="barcode_error">לא נמצא מוצר</string>
+    <string name="barcode_name_not_inserted">אנא הכנס את שם הבקבוק…</string>
+    <string name="barcode_no_xzing">בבקשה התקן zxing</string>
+    <string name="barcode_not_found_hint">שם המוצר…</string>
+    <string name="barcode_not_found_title">לא נמצא ברקוד</string>
+    <string name="barcode_sent">ברקוד נשלח</string>
+    <string name="barcode_sent_pending">הרשת מנותקת, יישלח כאשר גישה לרשת תתאפשר</string>
+    <string name="clean_message">מנקה…</string>
+    <string name="downloading_post">…</string>
+    <string name="downloading_pre">מוריד נתוני </string>
+    <string name="getting_language">מוריד קובצי שפה…</string>
+    <string name="info_message">הרשימה מנוהלת על ידי הרב שמואל זמלמן מרבנות ירושלים</string>
+    <string name="info_title">אודות:</string>
+    <string name="language_dialog_title">בחר שפה:</string>
+    <string name="menu_about">אודות</string>
+    <string name="menu_barcode">ברקוד</string>
+    <string name="menu_language">שפה</string>
+    <string name="menu_search">חיפוש</string>
+    <string name="menu_send">שלח</string>
+    <string name="menu_update">עדכן</string>
+    <string name="product_info_barcode">ברקוד:</string>
+    <string name="product_info_kashrut">כשרות:</string>
+    <string name="product_info_name">שם:</string>
+    <string name="product_info_not_exist">אין מוצר</string>
+    <string name="search_no_suggestion">אין הצעות…</string>
+    <string name="title_activity_list"> </string>
+    <string name="title_activity_new_product">מוצר חדש</string>
+    <string name="title_activity_product_info">מידע</string>
+    <string name="title_activity_search">חיפוש</string>
+    <string name="title_activity_test">בדיקה</string>
+    <string name="update_error">נכשל עדכון נתונים</string>
+    <string name="update_message">האם אתה רוצה לעדכן את הנתונים?</string>
+    <string name="update_network_down">לא יכול לעדכן כשהאינטרנט לא מחובר</string>
+    <string name="update_title">עדכון</string>
+    <string name="updating_data">מעדכן נתונים…</string>
+    <string name="updating_message">מתעדכן…</string>
+    <string name="updating_title">המתן…</string>
+</resources>
