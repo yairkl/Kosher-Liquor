@@ -36,15 +36,14 @@ import android.widget.RadioGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -377,32 +376,47 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
             barcodeNotFoundDialog(barcode);
         } else {
             String newName = name.replaceAll(" ", "%20");
-            final HttpClient httpClient = new DefaultHttpClient();
-            final HttpGet get = new HttpGet("http://kosherliquorlist.com/send.php?name=" + newName + "&barcode=" + barcode);
+            final String requestUrl = "http://kosherliquorlist.com/send.php?name=" + newName + "&barcode=" + barcode;
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         if (isOnline(context)) {
-                            httpClient.execute(get);
+                            sendGet(requestUrl);
                         } else {
                             boolean looper = true;
                             while (looper) {
                                 Thread.sleep(60000);
                                 if (isOnline(context)) {
-                                    httpClient.execute(get);
+                                    sendGet(requestUrl);
                                     looper = false;
                                 }
                             }
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }).start();
+        }
+    }
+
+    private void sendGet(String requestUrl) {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(requestUrl);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(15000);
+            connection.setReadTimeout(15000);
+            connection.getResponseCode();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
     }
 
