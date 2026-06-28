@@ -95,21 +95,47 @@ public class ImageStorageManager {
     }
 
     public Bitmap getBitmapFromURL(String myUrl) {
-	    try {
-	        URL url = new URL(myUrl);
-	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	        connection.setDoInput(true);
-	        connection.connect();
-            if (connection.getResponseCode()==200) {
-                InputStream input = connection.getInputStream();
-                return BitmapFactory.decodeStream(input);
-            }else
+        String current = myUrl;
+        try {
+            // Follow redirects manually, including http<->https, since
+            // HttpURLConnection will not switch protocols on its own.
+            for (int i = 0; i < 5; i++) {
+                URL url = new URL(current);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setInstanceFollowRedirects(false);
+                connection.setConnectTimeout(15000);
+                connection.setReadTimeout(15000);
+                connection.setDoInput(true);
+                connection.connect();
+                int code = connection.getResponseCode();
+                if (code == HttpURLConnection.HTTP_MOVED_PERM
+                        || code == HttpURLConnection.HTTP_MOVED_TEMP
+                        || code == HttpURLConnection.HTTP_SEE_OTHER
+                        || code == 307 || code == 308) {
+                    String location = connection.getHeaderField("Location");
+                    connection.disconnect();
+                    if (location == null)
+                        return null;
+                    current = new URL(url, location).toString();
+                    continue;
+                }
+                if (code == 200) {
+                    InputStream input = connection.getInputStream();
+                    Bitmap bitmap = BitmapFactory.decodeStream(input);
+                    input.close();
+                    connection.disconnect();
+                    return bitmap;
+                }
+                Log.e("loadImageFromUrl", "HTTP " + code + " for " + current);
+                connection.disconnect();
                 return null;
-	    } catch (IOException e) {
-            Log.e("loadImageFromUrl",e.getMessage()+"\nUrl: "+myUrl);
-	        return null;
-	    }
-	}
+            }
+            return null;
+        } catch (IOException e) {
+            Log.e("loadImageFromUrl", e.getMessage() + "\nUrl: " + myUrl);
+            return null;
+        }
+    }
 
     private class BitmapWorkerTask extends AsyncTask<Identifiable, Void, Bitmap> {
         private final WeakReference<ImageView> imageViewReference;
